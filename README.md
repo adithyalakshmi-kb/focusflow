@@ -2,27 +2,29 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [focusflow] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [shetech]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [adithyalakshmi kb] - [snmimt]
+- Member 2: [aswathy kj] - [snmimt]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[http://localhost:5173 🌸]
 
 ### Project Description
-[2-3 lines about what your project does]
+[FocusFlow is a web-based self-development and study tracking application designed to help students improve productivity, time management, and personal growth. The application provides an interactive dashboard where users can track daily study hours, monitor goal completion, maintain habit streaks, and record their mood, all in one structured platform. With a clean and minimal light-themed interface, FocusFlow visually represents progress through cards, progress bars, and indicators, making self-monitoring simple and engaging. By combining productivity tracking with self-reflection tools, the system encourages consistency, discipline, and motivation, acting as a digital companion for academic and personal development.]
 
 ### The Problem statement
-[What problem are you solving?]
+[Many students struggle with poor time management, inconsistent study habits, and untracked goals, which affects their academic performance and personal growth. Existing tools do not provide an integrated platform that combines study tracking, habit building, and self-reflection in one system. Therefore, there is a need for a simple, student-friendly application that supports overall self-development and productivity improvement.
+]
 
 ### The Solution
-[How are you solving it?]
+[FocusFlow provides a unified self-development platform that integrates study time tracking, goal monitoring, habit management, and mood tracking into a single dashboard. It helps students visually track their progress and stay consistent through structured metrics and motivational elements. This solution promotes better time management, discipline, and overall personal growth.
+]
 
 ---
 
@@ -31,7 +33,7 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
+- Languages used: []
 - Frameworks used: [e.g., React, Django, Spring Boot]
 - Libraries used: [e.g., axios, pandas, JUnit]
 - Tools used: [e.g., VS Code, Git, Docker]
