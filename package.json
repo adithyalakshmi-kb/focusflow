@@ -1,0 +1,14 @@
+{
+  "name": "shetech-workspace",
+  "version": "1.0.0",
+  "description": "Workspace for FocusFlow project",
+  "private": true,
+  "scripts": {
+    "start": "cd focusflow && npm start",
+    "dev": "cd focusflow && npm run dev",
+    "server": "cd focusflow && npm run server",
+    "server:dev": "cd focusflow && npm run server:dev",
+    "client:dev": "cd focusflow && npm run client:dev",
+    "build": "cd focusflow && npm run build"
+  }
+}

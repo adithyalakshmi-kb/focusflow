@@ -1,0 +1,23 @@
+{
+  "name": "focusflow",
+  "version": "1.0.0",
+  "description": "FocusFlow - Productivity Tracker for Students",
+  "private": true,
+  "scripts": {
+    "start": "cd client && npm run dev",
+    "server": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "setup": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": [
+    "productivity",
+    "pomodoro",
+    "goal-tracking",
+    "habit-tracker",
+    "focus",
+    "self-improvement"
+  ],
+  "author": "",
+  "license": "MIT"
+}
