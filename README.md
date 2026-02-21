@@ -13,7 +13,7 @@
 - Member 2: [aswathy kj] - [snmimt]
 
 ### Hosted Project Link
-[http://localhost:5173 ]
+ http://localhost:5173 
 
 ### Project Description
 [FocusFlow is a web-based self-development and study tracking application designed to help students improve productivity, time management, and personal growth. The application provides an interactive dashboard where users can track daily study hours, monitor goal completion, maintain habit streaks, and record their mood, all in one structured platform. With a clean and minimal light-themed interface, FocusFlow visually represents progress through cards, progress bars, and indicators, making self-monitoring simple and engaging. By combining productivity tracking with self-reflection tools, the system encourages consistency, discipline, and motivation, acting as a digital companion for academic and personal development.]
