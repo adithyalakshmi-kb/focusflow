@@ -85,7 +85,7 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-shetech     https://drive.google.com/drive/folders/1Z_elu3iZkLaK0bgPToj7_kvJxhY1EG54?usp=drive_link
+ drive link    https://drive.google.com/drive/folders/1Z_elu3iZkLaK0bgPToj7_kvJxhY1EG54?usp=drive_link
 
 #### Diagrams
 
