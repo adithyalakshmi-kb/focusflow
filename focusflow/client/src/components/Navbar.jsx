@@ -1,87 +1,108 @@
 import { useAuth } from '@/hooks/useAuth';
-import { useTheme } from '@/hooks/useTheme';
 import { useNavigate } from 'react-router-dom';
-import { Menu, X, Moon, Sun, LogOut } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, Bell, LogOut } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ onToggleSidebar }) {
   const { user, logout } = useAuth();
-  const { isDark, toggleDarkMode } = useTheme();
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
+  const firstName = user?.displayName?.split(' ')[0] || 'Friend';
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
+
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              ✨ FocusFlow
-            </div>
-          </div>
+    <header style={{
+      background: '#FFFFFF',
+      borderBottom: '1.5px solid #E2E8F0',
+      padding: '0 32px',
+      height: '68px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      position: 'sticky',
+      top: 0,
+      zIndex: 50,
+      boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+    }}>
+      {/* Left: toggle + greeting */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <button
+          onClick={onToggleSidebar}
+          style={{
+            width: 38, height: 38,
+            borderRadius: '10px',
+            border: '1.5px solid #E2E8F0',
+            background: '#fff',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: '#64748B',
+          }}
+        >
+          <Menu size={18} />
+        </button>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-              title={isDark ? 'Light mode' : 'Dark mode'}
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-
-            {user && (
-              <>
-                <div className="text-sm">
-                  <div className="font-medium">{user.displayName}</div>
-                  <div className="text-gray-500 dark:text-gray-400 text-xs">{user.email}</div>
-                </div>
-                <button
-                  onClick={handleLogout}
-                  className="p-2 rounded-lg hover:bg-red-100 dark:hover:bg-red-900 text-red-600 dark:text-red-400"
-                >
-                  <LogOut size={20} />
-                </button>
-              </>
-            )}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <button onClick={toggleDarkMode} className="p-2">
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+        <div>
+          <h2 style={{ fontSize: '17px', fontWeight: 700, color: '#1E293B', lineHeight: 1.2 }}>
+            {greeting}, {firstName} ✨
+          </h2>
+          <p style={{ fontSize: '12px', color: '#94A3B8', marginTop: '1px' }}>
+            {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+          </p>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && user && (
-          <div className="md:hidden border-t border-gray-200 dark:border-gray-800 py-4">
-            <div className="text-sm mb-4">
-              <div className="font-medium">{user.displayName}</div>
-              <div className="text-gray-500 dark:text-gray-400 text-xs">{user.email}</div>
+      {/* Right: actions */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <button style={{
+          width: 38, height: 38,
+          borderRadius: '10px',
+          border: '1.5px solid #E2E8F0',
+          background: '#fff',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: '#64748B',
+        }}>
+          <Bell size={17} />
+        </button>
+
+        {user && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            {/* Avatar */}
+            <div style={{
+              width: 36, height: 36,
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #C7D2FE, #BAE6FD)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 700, fontSize: '14px', color: '#4338CA',
+            }}>
+              {firstName[0]?.toUpperCase()}
             </div>
+
+            <div style={{ lineHeight: 1.3 }}>
+              <div style={{ fontSize: '13px', fontWeight: 600, color: '#1E293B' }}>{user.displayName}</div>
+              <div style={{ fontSize: '11px', color: '#94A3B8' }}>{user.email}</div>
+            </div>
+
             <button
               onClick={handleLogout}
-              className="w-full text-left px-4 py-2 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900 rounded"
+              title="Logout"
+              style={{
+                width: 34, height: 34,
+                borderRadius: '10px',
+                border: '1.5px solid #FEE2E2',
+                background: '#FFF5F5',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#EF4444',
+              }}
             >
-              Logout
+              <LogOut size={15} />
             </button>
           </div>
         )}
       </div>
-    </nav>
+    </header>
   );
 }

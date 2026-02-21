@@ -1,24 +1,148 @@
 /* stylelint-disable at-rule-no-unknown */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply transition-colors duration-200;
+:root {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --lavender: #C7D2FE;
+  --sky: #BAE6FD;
+  --peach: #FED7AA;
+  --mint: #BBF7D0;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --border: #E2E8F0;
+  --radius: 18px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.10);
 }
 
-html.dark {
-  color-scheme: dark;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  color-scheme: light;
 }
 
 body {
-  @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Smooth transition on all elements */
+*,
+*::before,
+*::after {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Pastel Badges ── */
+.badge-lavender {
+  background: #EDE9FE;
+  color: #6D28D9;
+}
+
+.badge-sky {
+  background: #E0F2FE;
+  color: #0369A1;
+}
+
+.badge-peach {
+  background: #FFF7ED;
+  color: #C2410C;
+}
+
+.badge-mint {
+  background: #F0FDF4;
+  color: #15803D;
+}
+
+.badge-pink {
+  background: #FDF2F8;
+  color: #BE185D;
+}
+
+/* ── Progress Ring ── */
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* ── Smooth Bar ── */
+.progress-bar {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 99px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ── Button ── */
+button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+input,
+textarea,
+select {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #a5b4fc;
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.2);
 }
 
 button:disabled {
-  @apply opacity-50 cursor-not-allowed;
-}
-
-input, textarea, select {
-  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
